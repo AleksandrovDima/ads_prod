@@ -2,6 +2,11 @@
     <div class="container">
 
         <div class="">
+            <a class="navbar-brand" href="{{ route('main') }}">
+                Главная
+            </a>
+        </div>
+        <div class="">
             <a class="navbar-brand" href="{{ route('ad.index') }}">
                 Объявления
             </a>
