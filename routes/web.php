@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('main');
-});
+})->name('main');
 
 Route::namespace('App\Http\Controllers\Admin\AD')
     ->prefix('admin')
