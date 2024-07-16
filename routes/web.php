@@ -1,18 +1,19 @@
 <?php
 
 
+use App\Http\Controllers\Ad\IndexController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('main');
 })->name('main');
 
-Route::namespace('App\Http\Controllers\Admin\AD')
-    ->prefix('admin')
+Route::prefix('admin')
     ->middleware('admin')
     ->group(function()
     {
-        Route::get('/ad', 'IndexController')->name('admin.ad.index');
+        Route::get('/ad', [IndexController::class, '__invoke'])->name('admin.ad.index');
 
     });
 
@@ -34,8 +35,6 @@ Route::namespace('App\Http\Controllers\Ad')->prefix('ads')->group(function () {
     });
 });
 
-
-
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
